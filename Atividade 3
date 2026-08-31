@@ -1,0 +1,26 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.Write("Digite seu nome: ");
+        string nome = Console.ReadLine();
+
+        Console.Write("Digite sua idade: ");
+        int idade = int.Parse(Console.ReadLine());
+        
+        Console.Write("Digite sua cidade: ");
+        string cidade = Console.ReadLine();
+
+        Console.Write("Digite sua altura: ");
+        double altura = double.Parse(Console.ReadLine());
+
+        Console.WriteLine();
+        Console.WriteLine("===== DADOS PESSOAIS =====");
+        Console.WriteLine($"Ola, {nome}!");
+        Console.WriteLine($"Voce tem {idade} anos");
+        Console.WriteLine($"Voce mora em {cidade}!");
+        Console.WriteLine($"Voce tem {altura} de altura ");
+    }
+}
