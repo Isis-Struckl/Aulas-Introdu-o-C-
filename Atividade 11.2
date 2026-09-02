@@ -1,0 +1,88 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.Write("Digite o nome do cliente: ");
+        string nome = Console.ReadLine();
+
+        Console.Write("Digite o produto: ");
+        string produto = Console.ReadLine();
+
+        Console.Write("Digite a quantidade: ");
+        int quantidade = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço unitário: ");
+        double precoUnitario = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite a distância em km: ");
+        double distancia = double.Parse(Console.ReadLine());
+
+        Console.Write("É cliente fidelidade? Digite S ou N: ");
+        string resposta = Console.ReadLine();
+
+        bool clienteFidelidade;
+
+        if (resposta == "S" || resposta == "s")
+        {
+            clienteFidelidade = true;
+        }
+        else
+        {
+            clienteFidelidade = false;
+        }
+
+        double subtotal = quantidade * precoUnitario;
+
+        double desconto = 0;
+
+        if (subtotal >= 100)
+        {
+            desconto = subtotal * 0.10;
+        }
+
+        double valorComDesconto = subtotal - desconto;
+
+        double descontoFidelidade = 0;
+
+        if (clienteFidelidade)
+        {
+            descontoFidelidade = valorComDesconto * 0.05;
+        }
+
+        valorComDesconto -= descontoFidelidade;
+
+        double taxaEntrega = 0;
+
+        if (distancia > 0)
+        {
+            taxaEntrega = distancia * 2.50;
+        }
+
+        double valorFinal = valorComDesconto + taxaEntrega;
+
+        string modalidade;
+
+        if (distancia > 0)
+        {
+            modalidade = "Entrega";
+        }
+        else
+        {
+            modalidade = "Retirada no restaurante";
+        }
+
+        Console.WriteLine("\n========== RESUMO DO PEDIDO ==========");
+        Console.WriteLine($"Cliente: {nome}");
+        Console.WriteLine($"Produto: {produto}");
+        Console.WriteLine($"Quantidade: {quantidade}");
+        Console.WriteLine($"Subtotal: R$ {subtotal:F2}");
+        Console.WriteLine($"Desconto principal: R$ {desconto:F2}");
+        Console.WriteLine($"Desconto fidelidade: R$ {descontoFidelidade:F2}");
+        Console.WriteLine($"Taxa de entrega: R$ {taxaEntrega:F2}");
+        Console.WriteLine($"Valor final: R$ {valorFinal:F2}");
+        Console.WriteLine($"Modalidade: {modalidade}");
+        Console.WriteLine("======================================");
+    }
+}
