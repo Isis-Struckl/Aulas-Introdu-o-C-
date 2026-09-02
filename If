@@ -1,1 +1,24 @@
+using System;
 
+public class Program
+{
+    public static void Main()
+    {
+        double saldo = 2000.0;
+
+        Console.Write("Informe o valor do saque: ");
+        double saque = double.Parse(Console.ReadLine());
+
+        if (saldo >= saque)
+        {
+            Console.WriteLine("Realizando saque!");
+            saldo = saldo - saque;
+            Console.WriteLine("Saldo restante: R$ " + saldo);
+        }
+
+        if (saldo < saque)
+        {
+            Console.WriteLine("Saldo insuficiente!");
+        }
+    }
+}
