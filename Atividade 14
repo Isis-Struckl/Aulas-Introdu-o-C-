@@ -1,0 +1,54 @@
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.Write("Digite o primeiro número: ");
+        double numero1 = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite o segundo número: ");
+        double numero2 = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite a operação (+, -, *, /): ");
+        string operacao = Console.ReadLine();
+
+        double resultado = 0;
+        bool operacaoValida = true;
+
+        if (operacao == "+")
+        {
+            resultado = numero1 + numero2;
+        }
+        else if (operacao == "-")
+        {
+            resultado = numero1 - numero2;
+        }
+        else if (operacao == "*")
+        {
+            resultado = numero1 * numero2;
+        }
+        else if (operacao == "/")
+        {
+            if (numero2 != 0)
+            {
+                resultado = numero1 / numero2;
+            }
+            else
+            {
+                Console.WriteLine("Erro: divisão por zero!");
+                operacaoValida = false;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Operação inválida!");
+            operacaoValida = false;
+        }
+
+        if (operacaoValida)
+        {
+            Console.WriteLine($"Resultado: {resultado}");
+        }
+    }
+}
